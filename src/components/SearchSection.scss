@@ -1,0 +1,22 @@
+.searchSection {
+  background: #afd275;
+  padding: 1rem;
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .5rem;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+.searchSection__bar {
+  width: 350px;
+}
+
+.searchSection__label {
+  color: #000;
+  font-weight: 600;
+  font-size: 21px;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
