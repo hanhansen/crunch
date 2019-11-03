@@ -1,5 +1,6 @@
 import React from "react";
 import { FormattedMessage } from 'react-intl';
+import { Logo } from './shared/Logo'
 import "./Header.scss";
 
 const Header = () => {
@@ -7,8 +8,7 @@ const Header = () => {
     <header className="header">
       <div className='header__left'></div>
       <div className='header__middle'>
-        <img className="header__logo" src={require("../logo.png")} alt="logo" />
-        <FormattedMessage id="header_title" defaultMessage="Crunch." />
+        <Logo />
       </div>
     </header>
   );

@@ -1,15 +1,15 @@
 import React from "react";
 import Header from './Header'
 import SearchPanel from './SearchPanel'
-import './Home.scss'
+import './Main.scss'
 
-const Home = () => {
+const Main = () => {
   return (
-    <div className='home'>
+    <div className='main'>
       <Header />
       <SearchPanel />
     </div>
   );
 };
 
-export default Home;
+export default Main;
