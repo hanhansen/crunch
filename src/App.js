@@ -10,7 +10,7 @@ function App () {
     <IntlProvider locale="en">
       <div className='App'>
         <Router>
-          <Route exact='/' component={Landing} />
+          <Route exact={true} path='/' component={Landing} />
           <Route path='/main' component={Main} />
         </Router>
       </div>
