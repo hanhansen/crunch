@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router'
 import {
   FormattedMessage,
   defineMessages,
@@ -7,10 +8,10 @@ import {
 import CreatableSelect from "react-select/creatable";
 import SearchSection from "./SearchSection";
 import { Logo } from "./shared/Logo";
+import { Loader } from './shared/Loader'
 
 import "./Landing.scss";
-import { searchRecipes } from "../utils/search";
-import { string } from "prop-types";
+import { searchRecipes } from "../utils/resolvers";
 
 interface LandingProps {
   intl: any
@@ -39,7 +40,7 @@ const local = defineMessages({
 });
 
 class Landing extends Component<LandingProps, LandingStates> {
-  state = {
+  state: LandingStates = {
     loading: false,
     redirect: false,
     ingredients: [],
@@ -49,8 +50,8 @@ class Landing extends Component<LandingProps, LandingStates> {
   handleSubmit = () => {
     const { ingredients, dietRestrictions } = this.state
     const inputData = {
-      ingredients,
-      dietRestrictions
+      ingredients: ingredients.map(item => item.label),
+      dietRestrictions: dietRestrictions.map(item => item.label)
     }
 
     this.setState({
@@ -80,6 +81,7 @@ class Landing extends Component<LandingProps, LandingStates> {
     const { intl } = this.props
     return (
       <div className="landing">
+        { this.state.redirect && <Redirect to='/main' /> }
         <div className="landing__main">
           <Logo />
           <div className="landing__subtitle">
@@ -96,7 +98,7 @@ class Landing extends Component<LandingProps, LandingStates> {
                 ...theme,
                 borderRadius: 0
               })}
-              options={[{ value: "orange", label: "orange" }]}
+              options={[]}
               placeholder={intl.formatMessage(local.ingredientPlaceholder)}
               onChange={this.onIngredientChange}
             />
@@ -107,7 +109,7 @@ class Landing extends Component<LandingProps, LandingStates> {
                 ...theme,
                 borderRadius: 0
               })}
-              options={[{ value: "orange", label: "orange" }]}
+              options={[]}
               placeholder={intl.formatMessage(local.dietaryRestrictions)}
               onChange={this.onDietChange}
             />
@@ -116,10 +118,12 @@ class Landing extends Component<LandingProps, LandingStates> {
               title={intl.formatMessage(local.search)}
               onClick={this.handleSubmit}
             >
-              <img
-                className="landing__img"
-                src={require("../icons/search.png")}
-              />
+              { this.state.loading ? <Loader /> : (
+                <img
+                  className="landing__img"
+                  src={require("../icons/search.png")}
+                />
+              ) }
             </button>
           </div>
         </div>
