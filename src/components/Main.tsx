@@ -1,11 +1,11 @@
 import React from "react";
-import Header from './Header'
-import SearchPanel from './SearchPanel'
-import './Main.scss'
+import Header from "./Header";
+import SearchPanel from "./SearchPanel";
+import "./Main.scss";
 
 const Main = () => {
   return (
-    <div className='main'>
+    <div className="main">
       <Header />
       <SearchPanel />
     </div>
