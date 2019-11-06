@@ -18,33 +18,3 @@
   font-weight: 600;
   color: $lime;
 }
-
-.landing__search {
-  display: flex;
-  padding: 1rem;
-  width: 100%;
-}
-
-.landing__bar {
-  flex: 1;
-  margin: 0 0.2rem;
-}
-
-.landing__submit {
-  width: 38px;
-  background: $muave;
-  border: 0;
-  margin: 0 2px;
-  cursor: pointer;
-  &:active {
-    outline: none;
-  }
-  &:hover {
-    background: $muave-hover;
-  }
-}
-
-.landing__img {
-  width: 24px;
-  height: 24px;
-}

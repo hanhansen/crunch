@@ -4,8 +4,8 @@
   height: 100%;
   background-color: #282c34;
   top: 0;
-  height: 60px;
-  line-height: 64px;
+  height: 70px;
+  line-height: 70px;
   color: #fff;
 }
 
@@ -16,5 +16,11 @@
 
 .header__middle {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 2;
+
+  .logo {
+    margin: 0;
+  }
 }
