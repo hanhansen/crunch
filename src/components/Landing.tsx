@@ -7,27 +7,30 @@ import SearchPanel from './SearchPanel'
 
 interface LandingStates {
   redirect: boolean
+  data: any
 }
 class Landing extends Component<{}, LandingStates> {
   state = {
-    redirect: false
+    redirect: false,
+    data: null
   }
-  onRedirectChange = (value: boolean) => {
+  onRequestSubmit = (value: boolean, data: any) => {
     this.setState({
-      redirect: value
+      redirect: value,
+      data
     })
   }
 
   render() {
     return (
       <div className='landing'>
-        {this.state.redirect && <Redirect to='/main' />}
+        {this.state.redirect && <Redirect to={{ pathname: '/main', state: { data: this.state.data }}} />}
         <div className='landing__main'>
           <Logo />
           <div className='landing__subtitle'>
             In a crunch? Find recipes based on the ingredients you already have.
           </div>
-          <SearchPanel onRedirectChange={this.onRedirectChange} />
+          <SearchPanel onRequestSubmit={this.onRequestSubmit} />
         </div>
       </div>
     )

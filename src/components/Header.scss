@@ -7,20 +7,20 @@
   height: 70px;
   line-height: 70px;
   color: #fff;
-}
 
-.header__left {
-  width: 115px;
-  // min-width: 115px;
-}
+  &__left {
+    width: 115px;
+    // min-width: 115px;
+  }
 
-.header__middle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 2;
+  &__middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
 
-  .logo {
-    margin: 0;
+    .logo {
+      margin: 0;
+    }
   }
 }

@@ -6,7 +6,7 @@ import { searchRecipes } from '../utils/resolvers'
 import { Loader } from './shared/Loader'
 
 interface SearchPanelProps {
-  onRedirectChange: (value: boolean) => void
+  onRequestSubmit: (value: boolean, data: any) => void
 }
 
 interface SearchPanelStates {
@@ -42,7 +42,7 @@ class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
         this.setState({
           loading: false,
         })
-        this.props.onRedirectChange(true)
+        this.props.onRequestSubmit(true, data)
       }
     )
   }
@@ -103,6 +103,7 @@ class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
             <img
               className='searchPanel__img'
               src={require('../icons/search.png')}
+              alt='search'
             />
           )}
         </button>

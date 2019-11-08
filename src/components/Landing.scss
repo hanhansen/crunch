@@ -1,20 +1,20 @@
 @import '../partials/variables.scss';
 .landing {
   background-color: $asphalt;
-}
 
-.landing__main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
 
-.landing__subtitle {
-  font-weight: 600;
-  color: $lime;
+  &__subtitle {
+    font-weight: 600;
+    color: $lime;
+  }
 }

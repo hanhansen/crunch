@@ -6,33 +6,33 @@
   margin-top: 1rem;
   align-items: center;
   width: 100%;
-}
 
-.searchPanel__bar {
-  flex: 1;
-  margin: 0 0.2rem;
-}
+  &__bar {
+    flex: 1;
+    margin: 0 0.2rem;
+  }
 
-.searchPanel_submit {
-  height: 100%;
-  width: 38px;
-  background: $muave;
-  border: 0;
-  margin: 0 2px;
-  cursor: pointer;
-  &:active {
-    outline: none;
+  &__submit {
+    height: 100%;
+    width: 38px;
+    background: $muave;
+    border: 0;
+    margin: 0 2px;
+    cursor: pointer;
+    &:active {
+      outline: none;
+    }
+    &:hover {
+      background: $muave-hover;
+    }
+    &.disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
   }
-  &:hover {
-    background: $muave-hover;
-  }
-  &.disabled {
-    opacity: 0.4;
-    cursor: default;
-  }
-}
 
-.searchPanel__img {
-  width: 24px;
-  height: 24px;
+  &__img {
+    width: 24px;
+    height: 24px;
+  }
 }
