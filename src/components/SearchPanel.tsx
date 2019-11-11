@@ -62,7 +62,7 @@ class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
   }
   render() {
     const buttonKlass = classnames({
-      'searchPanel_submit': true,
+      'searchPanel__submit': true,
       disabled: this.state.disabled
     })
     return (
