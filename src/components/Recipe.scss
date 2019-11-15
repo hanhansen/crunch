@@ -7,11 +7,6 @@
   margin: 8px;
   flex-basis: (100/5) * 1%;
   font-size: 18px;
-  &__header {
-    display: none;
-    color: $asphalt;
-    text-align: left;
-  }
 
   &__src {
     font-size: 14px;
@@ -36,7 +31,8 @@
       transition: all 0.3s ease-in-out;
       transform: translateZ(0);
     }
-    .recipe__header {
+    .recipe__header,
+    .recipe__footer {
       transition: all 0.3s ease-in-out;
       display: block;
     }
@@ -55,6 +51,17 @@
     z-index: 1;
     padding: 1rem .5rem;
     top: 0;
+    display: none;
+    color: $asphalt;
+    text-align: left;
+  }
+
+  &__footer {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem .5rem;
+    width: 95%;
   }
 
   &__border {

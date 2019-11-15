@@ -1,4 +1,6 @@
 import React from 'react'
+import HealthLabels from './HealthLabels'
+
 import './Recipe.scss'
 const Recipe = ({ recipe }) => {
   return (
@@ -10,6 +12,9 @@ const Recipe = ({ recipe }) => {
           <a className='recipe__title' target='_blank' href={recipe.url}>
             <div>{recipe.label}</div>
           </a>
+        </div>
+        <div className='recipe__footer'>
+          <HealthLabels labels={recipe.healthLabels || []} />
         </div>
       </div>
     </li>
