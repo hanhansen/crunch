@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { Entry as Recipe } from './RecipeList'
 import HealthLabels from './HealthLabels'
 
 import './Recipe.scss'
-const Recipe = ({ recipe }) => {
+
+interface RecipeProps {
+  recipe: Recipe
+}
+
+const Recipe: FC<RecipeProps> = ({ recipe }) => {
   return (
     <li className='recipe'>
       <div className='recipe__container'>
