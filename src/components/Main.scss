@@ -1,0 +1,10 @@
+@import '../partials/variables.scss';
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  color: $asphalt;
+  background: $grey;
+  margin: 0 auto;
+}

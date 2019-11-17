@@ -1,0 +1,20 @@
+@import '../partials/variables.scss';
+.landing {
+  background-color: $asphalt;
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  &__subtitle {
+    font-weight: 600;
+    color: $lime;
+  }
+}

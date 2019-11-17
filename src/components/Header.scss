@@ -1,0 +1,29 @@
+.header {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #282c34;
+  top: 0;
+  height: 70px;
+  line-height: 70px;
+  color: #fff;
+  z-index: 1;
+
+  &__left {
+    width: 115px;
+    // min-width: 115px;
+  }
+
+  &__middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    .logo {
+      margin: 0;
+    }
+  }
+  &__homeLink {
+    text-decoration: none;
+  }
+}

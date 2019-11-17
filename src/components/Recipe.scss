@@ -1,0 +1,71 @@
+@import '../partials/variables.scss';
+
+.recipe {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 8px;
+  flex-basis: (100/5) * 1%;
+  font-size: 18px;
+
+  &__src {
+    font-size: 14px;
+  }
+
+  &__title {
+    margin-top: 4px;
+    text-decoration: none;
+    color: $asphalt;
+    font-weight: 600;
+    line-height: 21px;
+    &:hover{
+      color: $asphalt-hover;
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    cursor: default;
+    .recipe__image {
+      opacity: 0.1;
+      transition: all 0.3s ease-in-out;
+      transform: translateZ(0);
+    }
+    .recipe__header,
+    .recipe__footer {
+      transition: all 0.3s ease-in-out;
+      display: block;
+    }
+  }
+  &__container {
+    position: relative;
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__header {
+    position: absolute;
+    width: 95%;
+    z-index: 1;
+    padding: 1rem .5rem;
+    top: 0;
+    display: none;
+    color: $asphalt;
+    text-align: left;
+  }
+
+  &__footer {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem .5rem;
+    width: 95%;
+  }
+
+  &__border {
+    height: 21px;
+    border-left: 1px solid $asphalt;
+  }
+}

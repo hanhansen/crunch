@@ -1,0 +1,14 @@
+.recipeList__list {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.recipeList {
+  width: 100%;
+  padding-top: 3rem;
+  margin: 70px 6%;
+}
