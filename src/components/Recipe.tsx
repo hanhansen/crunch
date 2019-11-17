@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import { Entry as Recipe } from './RecipeList'
+import { Entry } from './RecipeList'
 import HealthLabels from './HealthLabels'
 
 import './Recipe.scss'
 
 interface RecipeProps {
-  recipe: Recipe
+  recipe: Entry
 }
 
 const Recipe: FC<RecipeProps> = ({ recipe }) => {
