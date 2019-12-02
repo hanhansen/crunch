@@ -12,29 +12,31 @@ class HealthLabels extends Component<HealthLabelsProps> {
     let image
     switch(label.toLowerCase()) {
       case 'vegan':
-        image = <img src={require('../icons/vegan.png')} title={label} />
+        image = <img src={require('../icons/vegan.png')} title={label} alt={label} />
         break
       case 'vegetarian':
-        image = <img src={require('../icons/vegetarian.png')} title={label} />
+        image = <img src={require('../icons/vegetarian.png')} title={label}alt={label} />
         break
       case 'dairy-free':
-        image = <img src={require('../icons/dairy-free.png')} title={label} />
+        image = <img src={require('../icons/dairy-free.png')} title={label} alt={label} />
         break
       case 'gluten-free':
-        image = <img src={require('../icons/gluten-free.png')} title={label} />
+        image = <img src={require('../icons/gluten-free.png')} title={label} alt={label} />
         break
       case 'wheat-free':
-        image = <img src={require('../icons/gluten-free.png')} title={label} />
+        image = <img src={require('../icons/gluten-free.png')} title={label} alt={label} />
         break
       case 'egg-free':
-        image = <img src={require('../icons/egg-free.png')} title={label} />
+        image = <img src={require('../icons/egg-free.png')} title={label} alt={label} />
         break
       case 'peanut-free':
-          image = <img src={require('../icons/peanut-free.png')} title={label} />
+        image = <img src={require('../icons/peanut-free.png')} title={label} alt={label} />
         break
       case 'tree-nut-free':
-        image = <img src={require('../icons/peanut-free.png')} title={label} />
+        image = <img src={require('../icons/peanut-free.png')} title={label} alt={label} />
         break
+      case 'alcohol-free':
+        image = <img src={require('../icons/alcohol-free.png')} title={label} alt={label} />
       default:
         console.log(`${label} implementation needed`)
     }
@@ -49,7 +51,7 @@ class HealthLabels extends Component<HealthLabelsProps> {
   
     return (
       <div className='healthLabels'>
-        { labels.map((label: string) => this.getImage(label)) }
+        { labels.map((label: string, idx: number) => <div key={`${idx}-label`}>{this.getImage(label)}</div> )}
       </div>
     )
   }
