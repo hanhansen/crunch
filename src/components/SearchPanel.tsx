@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CreatableSelect from 'react-select/creatable'
 import classnames from 'classnames'
 import './SearchPanel.scss'
-import { searchRecipes } from '../utils/resolvers'
+import { autocomplete, searchRecipes } from '../utils/resolvers'
 import { Loader } from './shared/Loader'
 
 interface SearchPanelProps {
@@ -15,6 +15,8 @@ interface SearchPanelStates {
   disabled: boolean
   ingredients: { value: string; label: string }[]
   dietRestrictions: { value: string; label: string }[]
+  ingredientOptions: { value: string; label: string }[]
+  healthLabelOptions: { value: string; label: string }[]
 }
 
 class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
@@ -23,7 +25,9 @@ class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
     redirect: false,
     disabled: true,
     ingredients: [],
-    dietRestrictions: []
+    dietRestrictions: [],
+    ingredientOptions: [],
+    healthLabelOptions: []
   }
 
   handleSubmit = () => {
@@ -47,6 +51,28 @@ class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
     )
   }
 
+  handleIngredientKeyDown = async(event: any) => {
+    const element = event.target as HTMLInputElement
+    const results = await autocomplete(element.value)
+    this.setState({
+      ingredientOptions: results && results.map((value: string) => ({
+        value,
+        label: value
+      }))
+    })
+  }
+
+  handleHealthLabelKeyDown = async(event: any) => {
+    const element = event.target as HTMLInputElement
+    const results = await autocomplete(element.value)
+    this.setState({
+      healthLabelOptions: results && results.map((value: string) => ({
+        value,
+        label: value
+      }))
+    })
+  }
+
   onIngredientChange = (newValue: any) => {
     this.setState({
       ingredients: newValue,
@@ -61,6 +87,7 @@ class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
     })
   }
   render() {
+    const { ingredientOptions, healthLabelOptions } = this.state
     const buttonKlass = classnames({
       'searchPanel__submit': true,
       disabled: this.state.disabled
@@ -75,9 +102,10 @@ class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
             borderRadius: 0
           })}
           isClearable={false}
-          options={[]}
+          options={ingredientOptions}
           placeholder='Search by ingredient(s)'
           onChange={this.onIngredientChange}
+          onKeyDown={this.handleIngredientKeyDown}
         />
         <CreatableSelect
           className='searchPanel__bar'
@@ -87,9 +115,10 @@ class SearchPanel extends Component<SearchPanelProps, SearchPanelStates> {
             borderRadius: 0
           })}
           isClearable={false}
-          options={[]}
+          options={healthLabelOptions}
           placeholder='Any dietary restrictions?'
           onChange={this.onDietChange}
+          onKeyDown={this.handleHealthLabelKeyDown}
         />
         <button
           className={buttonKlass}

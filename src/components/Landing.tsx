@@ -28,7 +28,7 @@ class Landing extends Component<{}, LandingStates> {
         <div className='landing__main'>
           <Logo />
           <div className='landing__subtitle'>
-            In a crunch? Find recipes based on the ingredients you already have.
+            In a crunch? Find recipes with ingredients you already have.
           </div>
           <SearchPanel onRequestSubmit={this.onRequestSubmit} />
         </div>
